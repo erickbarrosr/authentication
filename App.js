@@ -1,5 +1,6 @@
 import express from "express";
 import "./src/config/database";
+import userRoutes from "./src/routes/userRoutes";
 
 class App {
   constructor() {
@@ -13,7 +14,9 @@ class App {
     this.app.use(express.json());
   }
 
-  routes() {}
+  routes() {
+    this.app.use("/api", userRoutes);
+  }
 }
 
 export default new App().app;
